@@ -29,8 +29,37 @@ function copiaCorreo(){
     });
 }
 function clearForm(){
-    document.getElementById("contacto-form").reset();
+    document.getElementById("contacto-form").addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenir el envío estándar del formulario
+    
+        // Recoge los datos del formulario
+        var form = event.target;
+        var data = new FormData(form);
+    
+        // Envía el formulario usando Fetch API
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(function(response) {
+          if (response.ok) {
+            // Limpiar el formulario
+            form.reset();
+            
+            // Redirigir a la página original o mostrar un mensaje de éxito
+            alert('¡Formulario enviado con éxito!');
+            window.location.href = window.location.href; // Recarga la página
+          } else {
+            alert('Error al enviar el formulario.');
+          }
+        }).catch(function(error) {
+          alert('Hubo un problema con la solicitud.');
+        });
+      });
 }
 
 copiaCorreo()
+clearForm()
 
