@@ -492,10 +492,14 @@ footer .arriba{
     .contacto .fila .col{
         width: 100%;
     }
+    .info{
+        visibility:hidden !important;
+    }
 }
 @media (min-width: 768px) {
     .lista-servicios{
         display: grid;
         grid-template-columns: repeat(3,1fr); /*1fr seria una fraccion del total */
     }
+ 
 }

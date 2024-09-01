@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabrizio Zavaleta - Portafolio</title>
+    <link rel="icon" href="images/icono-pestaña.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/indexStyles.css">
 </head>
@@ -22,7 +23,7 @@
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="nav-responsive">
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </header>
@@ -172,17 +173,17 @@
             <h2>CONTACTO</h2>
             <div class="fila">
                 <!-- Formulario -->
-                <div class="col">
-                    <input type="text" placeholder="Tú Nombre">
-                    <input type="text" placeholder="Número telefónico">
-                    <input type="text" placeholder="Dirección de correo">
-                    <input type="text" placeholder="Tema">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
-                    <button>
-                        Enviar Mensaje<i class="fa-solid fa-paper-plane"></i>
+                <form class="col" id="contacto-form" action="https://formspree.io/f/mrbzjnak" method="post">
+                    <input type="text" name="name" placeholder="Tú Nombre">
+                    <input type="phone" name="phone" placeholder="Número telefónico">
+                    <input type="email" name="email" placeholder="Dirección de correo">
+                    <input type="text" name="subject" placeholder="Tema">
+                    <textarea name="message" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                    <button type="submit" onclick="clearForm()">
+                        Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
                         <span class="overlay"></span>
                     </button>
-                </div>
+                </form>
                 <!-- Mapa -->
                 <div class="col">
                     <div class="info">
